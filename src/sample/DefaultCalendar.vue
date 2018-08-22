@@ -10,7 +10,18 @@
                         @selected="_handleSelectedDate"
                         @click-last-month="_handleClickLastMonth"
                         @click-next-month="_handleClickNextMonth"
-        />
+        >
+            <div class="event-container no-select" slot-scope="prop" slot="date">
+                <div class="event-day-content">
+                    <div class="ml-2 mr-2"><v-divider /></div>
+                    <div>a</div>
+                </div>
+                <div class="event-stay-content">
+                    <div class="ml-2 mr-2"><v-divider /></div>
+                    <div>b</div>
+                </div>
+            </div>
+        </vuetify-calendar>
     </section>
 </template>
 
@@ -64,3 +75,13 @@
         }
     }
 </script>
+<style>
+ .event-container {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+  .event-container > div {
+    flex: 1 1 0;
+  }
+</style>

@@ -17,7 +17,7 @@
                @mouseover="_handleMouseOver(day)"
                @mouseup="_handleMouseUp(day)"
       >
-        <div>
+        <div class="day-content-container">
           <slot name="date-header" :row="day">
             <div class="date-number no-select ml-1">{{day.date.format('DD')}}</div>
           </slot>
@@ -230,12 +230,29 @@ export default {
   padding-bottom: 100%;
   grid-row: 1 / 1;
   grid-column: 1 / 1;
-
 }
 
 .grid > *:first-child {
   grid-row: 1 / 1;
   grid-column: 1 / 1;
+}
+
+.day-content-container {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+.day-content-container > .date-header {
+  flex: 0 0 21px;
+}
+
+.day-content-container > .date-content {
+  flex: 1 1 0;
+}
+
+.date-content {
+  position: relative;
+  height: 100%;
 }
 
 .day-content {
@@ -248,19 +265,18 @@ export default {
 .day-content.first-week {
   border-top: 1px #E0E0E0 solid;
 }
-
 .day-content.today {
-    background-color: #FCF7DF;
-  }
+  background-color: #FCF7DF;
+}
 .day-content.selected {
-    background-color: #b6d6e5;
-  }
+  background-color: #b6d6e5;
+}
 .day-content.selecting {
-    background-color: #F4F3F4;
-  }
+  background-color: #F4F3F4;
+}
 .day-content.unselecting {
-    background-color: #FFF;
-  }
+  background-color: #FFF;
+}
 .no-select {
     -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
