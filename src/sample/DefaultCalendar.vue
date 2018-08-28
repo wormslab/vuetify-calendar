@@ -6,6 +6,7 @@
                         :current-month="currentMonth"
                         :selecting="selecting"
                         :selected="selected"
+                        :disable-change-month="true"
                         @selecting="_handleSelectingDate"
                         @selected="_handleSelectedDate"
                         @click-last-month="_handleClickLastMonth"
@@ -14,7 +15,7 @@
             <div class="event-container no-select" slot-scope="prop" slot="date">
                 <div class="event-day-content">
                     <div class="ml-2 mr-2"><v-divider /></div>
-                    <div>a</div>
+                    <div>abbb</div>
                 </div>
                 <div class="event-stay-content">
                     <div class="ml-2 mr-2"><v-divider /></div>
@@ -41,7 +42,6 @@
         },
         methods: {
             _handleSelectingDate (period) {
-                console.log(period)
                 if (this.selected.includes(period[0])) {
                     this.mode = 'unselection'
                 } else {

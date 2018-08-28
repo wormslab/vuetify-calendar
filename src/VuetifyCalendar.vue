@@ -2,11 +2,11 @@
   <section class="vuetify-calendar-container">
     <section class="d-flex align-center justify-center pa-3">
       <div class="prev-month-icon">
-        <v-btn class="ma-0" fab icon small @click="_handleClickLastMonth"><v-icon>keyboard_arrow_left</v-icon></v-btn>
+        <v-btn class="ma-0" fab icon small @click="_handleClickLastMonth" :disabled="disableChangeMonth"><v-icon>keyboard_arrow_left</v-icon></v-btn>
       </div>
       <div class="title font-weight-bold text-sm-center">{{displayMonth}}</div>
       <div class="next-month-icon">
-        <v-btn class="ma-0" fab icon small @click="_handleClickNextMonth"><v-icon>keyboard_arrow_right</v-icon></v-btn>
+        <v-btn class="ma-0" fab icon small @click="_handleClickNextMonth" :disabled="disableChangeMonth"><v-icon>keyboard_arrow_right</v-icon></v-btn>
       </div>
     </section>
     <section class="grid">
@@ -85,6 +85,10 @@ export default {
       default() {
         return [];
       }
+    },
+    disableChangeMonth: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
